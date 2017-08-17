@@ -28,4 +28,10 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+    <string name="tab_name_1">List</string>
+    <string name="tab_name_2">Tile</string>
+    <string name="tab_name_3">Card</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
