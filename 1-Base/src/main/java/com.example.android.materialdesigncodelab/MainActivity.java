@@ -17,16 +17,44 @@
 package com.example.android.materialdesigncodelab;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+
+    @BindView(R.id.tabs)
+    TabLayout mTabLayout;
+
+    @BindView(R.id.viewpager)
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        setSupportActionBar(mToolbar);
+        setupViewPager();
+        mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    private void setupViewPager() {
+        MainAdapter adapter = new MainAdapter(getSupportFragmentManager());
+        adapter.addFragment(ListContentFragment.newInstance(), getString(R.string.tab_name_1));
+        adapter.addFragment(TileContentFragment.newInstance(), getString(R.string.tab_name_2));
+        adapter.addFragment(CardContentFragment.newInstance(), getString(R.string.tab_name_3));
+        mViewPager.setAdapter(adapter);
     }
 
     @Override
