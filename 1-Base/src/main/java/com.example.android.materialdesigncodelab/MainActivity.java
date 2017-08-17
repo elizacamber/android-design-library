@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
-        MainAdapter adapter = new MainAdapter(getSupportFragmentManager());
+        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(ListContentFragment.newInstance(), getString(R.string.tab_name_1));
         adapter.addFragment(TileContentFragment.newInstance(), getString(R.string.tab_name_2));
         adapter.addFragment(CardContentFragment.newInstance(), getString(R.string.tab_name_3));
